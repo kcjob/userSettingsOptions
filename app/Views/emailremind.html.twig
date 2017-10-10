@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reminder</title>
+    <script>
+      src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+      th, td  {font-size: "15px"; text-align: "center";}
+      p {font-size: 15px;}
+    </style>
+  </head>
+    <body>
+      <form>
+        <p>Dear {{ userName }} , <br><br>
+           This is a reminder that you have scheduled to use the following CCNY Core Facilities
+           equipment tomorrow,<b> {{sessionDate}} </b>
+        </p>
+      <p>If you find the time is no longer needed, please update the online
+        booking calendar accordingly
+      </p>
+
+      <table style="width:100%">
+        <thead>
+          <tr><th style= "font-size = 15px">Equipment</th><th>Date</th><th>Start</th><th>End</th><th>Note</th></tr>
+        </thead>
+          <tbody>
+            {% for sessionInfo in dataArray %}
+              <tr><td style= "text-align: center; font-size: 15px">
+              {% for session in sessionInfo %}
+                {{session}}</td><td style="text-align: center; font-size: 15px">
+              {% endfor %}
+              </td></tr>
+            {% endfor %}
+          </tbody>
+      </table>
+
+      <p>Please note the data entered in the online calendar is used to generate
+        monthly usage invoices. Keeping the schedule accurate not only saves research
+        funds but also allows other researchers to use the equipment effectively</p>
+
+      <input type="hidden" name="emailaddy" id="emailaddy" value={{userEmailAddress}} />
+
+      <p>
+        <a "target" = _blank href="http://localhost:8000/userSettingsOptions/templates/eReminderOptout.html?email={{userEmailAddress}}">Click here to Unsubscribe from reminder email list</a>
+      </p>
+
+      <p>Thank you for using our core facilities,</p>
+
+      <p>CCNY CoreLABS team</p>
+    </form>
+    </body>
+</html>
