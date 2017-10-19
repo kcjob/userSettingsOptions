@@ -1,0 +1,15 @@
+#div1{
+  height:300px;
+  width: 500px;
+  margin-top: 5cm;
+  margin-left: 10cm;
+  padding: 50px 30px 50px 80px;
+  border: 1px solid black;
+}
+#div2{
+  margin-top: 0.5cm;
+  margin-left: 0.1cm;
+}
+#div3{
+  align="center"
+}

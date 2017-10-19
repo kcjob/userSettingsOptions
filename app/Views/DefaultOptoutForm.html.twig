@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Email Reminder Opt Out </title>
+    <style>
+      #div1{
+        height:300px;
+        width: 500px;
+        margin-top: 5cm;
+        margin-left: 10cm;
+        padding: 50px 30px 50px 80px;
+        border: 1px solid black;
+      }
+      #div2{
+        margin-top: 15.5 cm;
+        margin-right: 1.1 cm;
+        margin-left: 0.1 cm;
+      }
+      #div3{
+        align="center"
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1">
+      <form action="optout" method="post">
+        <div id="div2">
+          <center><h4>Email Notification opt-out</h4></center>
+          <center>
+            Enter your email Address:<br />
+            <input type="text" name="emailAddy" id="emailAddy"><br>
+            <input type='hidden' name="option_name" id="option_name" value="optout" />
+            <input type='hidden' name="option_value" id="option_name" value=1 />
+          </center>
+          <div align="center" id="div3">
+            <input type="submit" value="Submit">
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
