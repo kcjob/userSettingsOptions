@@ -17,9 +17,7 @@ class OptoutController
     {
       return $app->redirect('/weboptout');
     }
-//    return getUserSettings::userSettings($app, $request);
     return UserSettingsDAO::getSettingsByEmail($app, $request);
-    //$app['twig']->render('defaultView.html.twig',$params);
   } //getUserByEmail
 
 }
