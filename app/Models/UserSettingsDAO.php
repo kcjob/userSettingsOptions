@@ -40,8 +40,6 @@ class UserSettingsDAO
       # Set flash message and return redirect
       $app['session']->getFlashBag()->add('updated', 'You have already been unsubscribed');
       return $app->redirect('/weboptout/web');
-      //throw new \Exception('setSettingsByEmail Querry failed');
-      //die();
     }
     return $app['twig']->render('thankYou.html.twig');
   }
@@ -109,15 +107,11 @@ class UserSettingsDAO
       # Set flash message and return redirect
       $app['session']->getFlashBag()->add('wrongEmail', 'Please enter a correct Email Address');
       return $app->redirect('/weboptout/web');
-      //echo "Prepare failed: (" . $connectToDb->errno . ") " . $connectToDb->error;
-      //throw new \Exception('getSettingsByEmail Querry failed');
-      //die();
-    }
+     }
 
     $userSettings = $result->fetch();
     $settingsValue = $userSettings['settings'];
-    //var_dump($settingsValue);
-
+ 
     return changeOptionValue::updateOptionValue($settingsValue,$request,$app);
   }
 
@@ -143,19 +137,3 @@ class UserSettingsDAO
     }
     return $settings;
   }
-
-
-  //----------------
-  static function parseJson($settings, $option_name)
-  {
-    if($settings == ""){
-      return false;
-    }
-    $settingsOptionArray = json_decode($settings, TRUE);
-    foreach($settingsOptionArray as $key => $value){
-      if($settingsOptionArray[$option_name])
-        return true;
-    }
-  }
-
-}
