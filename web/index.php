@@ -26,12 +26,9 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(),array(
 //echo '<pre>' . var_export($app['db']->error(), true) . '</pre>';
 
 //--------
-//$app->get('/', function(){return 'Hello';});
-//$app->get('/connect', 'Controllers\\DBConnect::testConnection');
 $app->get('/', function() use($app) {
     return $app['twig']->render('DefaultOptoutForm.html.twig');
 });
 $app->post('/optout', 'Controllers\\OptoutController::getUserByEmail');
-//$app->get('/confirm', 'Controllers\\OptoutControler::confirm');
 
 $app->run(); // Start the application, i.e. handle the request
