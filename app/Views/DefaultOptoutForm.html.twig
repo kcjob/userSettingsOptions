@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <div class="container1">
+        <div class="container2">
+            <form action="optout" method="post">
+                <h2>Email Notification opt-out</h2>
+
+                  Enter your email Address:<br />
+                  <input class="element_text"  size="35" type="text" name="emailAddy" id="emailAddy"><br>
+                  <input type='hidden' name="option_name" id="option_name" value="optout" />
+                  <input type='hidden' name="option_value" id="option_name" value=1 />
+
+                <div class="container3">
+                  <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div> <!-- container2 -->
+            {% if app.session.flashBag.has('missing') %}
+                <div class="error_msg">
+                    {% for msg in app.session.flashbag.get('missing') %}
+                        <strong>{{msg}}</strong>
+                    {% endfor %}
+                </div><!-- error_msg -->
+            {% endif %}
+            {% if app.session.flashBag.has('wrongEmail') %}
+                <div class="error_msg">
+                    {% for msg in app.session.flashbag.get('wrongEmail') %}
+                        <strong>{{msg}}</strong>
+                    {% endfor %}
+                </div><!-- error_msg -->
+          {% endif %}
+          {% if app.session.flashBag.has('updated') %}
+              <div class="error_msg">
+                  {% for msg in app.session.flashbag.get('updated') %}
+                      <strong>{{msg}}</strong>
+                  {% endfor %}
+              </div><!-- error_msg -->
+        {% endif %}
+    </div><!-- container1 -->
+{% endblock %}
