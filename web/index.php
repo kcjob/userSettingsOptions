@@ -29,6 +29,6 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(),array(
 $app->get('/', function() use($app) {
     return $app['twig']->render('DefaultOptoutForm.html.twig');
 });
-$app->post('/optout', 'Controllers\\OptoutController::getUserByEmail');
+$app->post('/optout/emailNotify', 'Controllers\\OptoutController::optoutManager');
 
 $app->run(); // Start the application, i.e. handle the request
